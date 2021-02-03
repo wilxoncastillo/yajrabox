@@ -22,4 +22,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users', 'HomeController@getUsers')->name('get.users');
 
+Route::get('user-data', function() {
+    $model = App\User::query();
+
+    return DataTables::eloquent($model)
+                ->addColumn('intro', 'Hi {{$name}}!')
+                ->toJson();
+});
+
 

@@ -19,6 +19,7 @@
                         <tr>
                           <th>#</th>
                           <th>Name</th>
+                          <th>Intro</th>
                           <th>Email</th>
                           <th>Created_At</th>
                           <th>Updated_At</th>
@@ -48,7 +49,8 @@
                 ajax: '{!! route('get.users') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
-                    { data: 'DT_RowData.data-name', name: 'name' },
+                    { data: 'name', name: 'name' },
+                    { data: 'intro', name: 'intro' },
                     { data: 'email', name: 'email' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' }

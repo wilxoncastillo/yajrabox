@@ -82,10 +82,22 @@ class HomeController extends Controller
             //    'align' => 'center',
             //    ])
 
-            //*****************************
-            // Row Attributes
+            //->make(true);
 
+            //-----------------------------------
+            // Column Editing Options
+            ->addColumn('intro', 'Hi {{$name}}!')
+            ->addColumns(['foo','bar','buzz'=>"red"])
+            ->editColumn('name', 'Hi {{$name}}!')
 
-            ->make(true);
+            ->editColumn('created_at', function(User $user) {
+                    return $user->created_at->diffForHumans() ;
+                })
+
+            ->editColumn('updated_at', 'column')
+            ->rawColumns(['updated_at'])
+            ->addIndexColumn()
+            ->toJson();
+
     }
 }
