@@ -31,6 +31,61 @@ class HomeController extends Controller
     }
 
     public function getUsers() {
-        return Datatables::of(User::query())->make(true);
+        return Datatables::of(User::query())
+            //*******************************
+            //Row Id
+            //->setRowId('id')
+
+            //->setRowId(function ($user) {
+            //    return $user->id;
+            //})
+
+            //->setRowId( '{{ $id }}' )
+
+            //*****************************
+            //Row Class
+            //->setRowClass(function ($user) {
+            //    return $user->id % 2 == 0 ? 'alert-success' : 'alert-warning';
+            //})
+
+            //->setRowClass('{{ $id % 2 == 0 ? "alert-success" : "alert-warning" }}')
+
+            //*****************************
+            //Row Data
+            //->setRowData([
+            //    'data-id' => function($user) {
+            //        return 'row-' . $user->id;
+            //    },
+            //    'data-name' => function($user) {
+            //        return 'row-' . $user->name;
+            //    },
+            //])
+
+            //->setRowData([
+            //    'data-id' => 'row-{{$id}}',
+            //    'data-name' => '0001-{{$name}}',
+            //])
+
+            //*****************************
+            // Row Attributes
+            //->setRowAttr([
+            //    'color' => function($user) {
+            //        return $user->color;
+            //    },
+            //])
+
+            //->setRowAttr([
+            //    'color' => '{{$color}}',
+            //    ])
+
+            //->setRowAttr([
+            //    'align' => 'center',
+            //    ])
+
+            //*****************************
+            // Row Attributes
+
+
+            ->make(true);
     }
 }
