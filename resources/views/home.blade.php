@@ -25,21 +25,7 @@
 
                         </tr>
                       </thead>
-                      <tbody>
-                        @forelse ($users as $item)
-                        <tr>
-                          <th scope="row">{{ $item->id }}</th>
-                          <td>{{ $item->name }}</td>
-                          <td>{{ $item->email }}</td>
-                          <td>{{ $item->created_at }}</td>
-                          <td>{{ $item->updated_at }}</td>
-                        </tr>
-                        @empty
-                            <div class="alert-info">
-                                No hay Datos
-                            </div>
-                        @endforelse
-                      </tbody>
+
                     </table>
 
                 </div>
@@ -56,7 +42,18 @@
 
     <script type="text/javascript">
         $(document).ready( function () {
-            $('#myTable').DataTable();
+            $('#myTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{!! route('get.users') !!}',
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'name', name: 'name' },
+                    { data: 'email', name: 'email' },
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'updated_at', name: 'updated_at' }
+                ]
+            });
         });
     </script>
 @endpush

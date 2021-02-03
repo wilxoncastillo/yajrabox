@@ -9,3 +9,7 @@ https://www.youtube.com/watch?v=7I8HfA5iIRw&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSg
 
 composer require yajra/laravel-datatables
 php artisan vendor:publish --tag=datatables
+
+use Yajra\Datatables\Datatables;
+
+https://datatables.yajrabox.com/starter
