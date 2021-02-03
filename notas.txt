@@ -1,0 +1,11 @@
+https://yajrabox.com/docs/laravel-datatables/master
+
+
+https://www.youtube.com/watch?v=AwTiTrP3M7o&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSgy13&index=1
+
+npm install --save datatables.net-dt
+
+https://www.youtube.com/watch?v=7I8HfA5iIRw&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSgy13&index=2
+
+composer require yajra/laravel-datatables
+php artisan vendor:publish --tag=datatables
