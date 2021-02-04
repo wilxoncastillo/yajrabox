@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "datatables.net-dt": "^1.10.23"
+        "datatables.net-dt": "^1.10.23",
+        "laravel-datatables-assets": "0.0.2"
     }
 }

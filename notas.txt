@@ -22,6 +22,22 @@ https://www.youtube.com/watch?v=MJCNdpFJhCU&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSg
 composer require yajra/laravel-datatables-html
 php artisan vendor:publish --tag=datatables-html
 
+
+
+----
+npm i laravel-datatables-assets
+
+composer require yajra/laravel-datatables-buttons:^4.0
+
+Service Provider (Optional on Laravel 5.5)
+Yajra\DataTables\ButtonsServiceProvider::class
+
+Configuration and Assets (Optional)
+$ php artisan vendor:publish --tag=datatables-buttons --force
+
+And that's it! Start building out some awesome DataTables!
+----
+
   datatables
   datatables:editor    Create a new DataTables Editor class.
   datatables:html      Create a new DataTable html class.
@@ -49,4 +65,8 @@ return Datatables::of(User::all())->make(true);
 https://www.youtube.com/watch?v=Ew2ejSwzxSc&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSgy13&index=6
 
 https://www.youtube.com/watch?v=DvQnNp43DUY&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSgy13&index=7
+
+
+-----------
+Button::make('create')->action("window.location = '".route('admin.posts.create')."';"),
 
