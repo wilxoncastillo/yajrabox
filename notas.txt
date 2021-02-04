@@ -1,6 +1,5 @@
 https://yajrabox.com/docs/laravel-datatables/master
 
-
 https://www.youtube.com/watch?v=AwTiTrP3M7o&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSgy13&index=1
 
 npm install --save datatables.net-dt
@@ -13,3 +12,41 @@ php artisan vendor:publish --tag=datatables
 use Yajra\Datatables\Datatables;
 
 https://datatables.yajrabox.com/starter
+
+https://www.youtube.com/watch?v=PqzSdNU6tuQ&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSgy13&index=3
+
+https://www.youtube.com/watch?v=z6qaYJ42IgQ&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSgy13&index=4
+
+https://www.youtube.com/watch?v=MJCNdpFJhCU&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSgy13&index=5
+
+composer require yajra/laravel-datatables-html
+php artisan vendor:publish --tag=datatables-html
+
+  datatables
+  datatables:editor    Create a new DataTables Editor class.
+  datatables:html      Create a new DataTable html class.
+  datatables:make      Create a new DataTable service class.
+  datatables:scope
+
+  php artisan datatable:make User --model
+
+  use Yajra\Datatables\Facades\Datatables;
+
+// Using Eloquent
+return Datatables::eloquent(User::query())->make(true);
+
+// Using Query Builder
+return Datatables::queryBuilder(DB::table('users'))->make(true);
+
+// Using Collection
+return Datatables::collection(User::all())->make(true);
+
+// Using the Engine Factory
+return Datatables::of(User::query())->make(true);
+return Datatables::of(DB::table('users'))->make(true);
+return Datatables::of(User::all())->make(true);
+
+https://www.youtube.com/watch?v=Ew2ejSwzxSc&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSgy13&index=6
+
+https://www.youtube.com/watch?v=DvQnNp43DUY&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSgy13&index=7
+

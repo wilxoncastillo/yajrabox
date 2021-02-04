@@ -31,6 +31,7 @@ class HomeController extends Controller
     }
 
     public function getUsers() {
+
         return Datatables::of(User::query())
             //*******************************
             //Row Id
