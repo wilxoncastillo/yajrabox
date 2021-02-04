@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ $dataTable->table() }}
+                    {{ $dataTable->table([], true) }}
 
                 </div>
             </div>

@@ -32,7 +32,8 @@ class UserDataTable extends DataTable
      */
     public function query(User $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()
+            ->select('id', 'name', 'email', 'created_at', 'updated_at');
     }
 
     /**
@@ -54,7 +55,27 @@ class UserDataTable extends DataTable
                         Button::make('print'),
                         Button::make('reset'),
                         Button::make('reload')
-                    );
+                    )
+                    ->parameters([
+                        'searching' => true,
+                        'paging' => true,
+                        'info' => true,
+                        'searchDelay' => 350,
+                        'language' => [
+                            'url' => url('vendor/dataTables/es_es.json')
+                        ],
+                        'dom'          => 'Bfrtip',
+                        'initComplete' => "function () {
+                            this.api().columns().every(function () {
+                                var column = this;
+                                var input = document.createElement(\"input\");
+                                $(input).appendTo($(column.footer()).empty())
+                                .on('change', function () {
+                                    column.search($(this).val(), false, false, true).draw();
+                                });
+                            });
+                        }",
+                    ]);
     }
 
     /**

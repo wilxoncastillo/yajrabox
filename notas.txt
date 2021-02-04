@@ -19,12 +19,18 @@ https://www.youtube.com/watch?v=z6qaYJ42IgQ&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSg
 
 https://www.youtube.com/watch?v=MJCNdpFJhCU&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSgy13&index=5
 
+
 composer require yajra/laravel-datatables-html
 php artisan vendor:publish --tag=datatables-html
 
-
+https://datatables.yajrabox.com/starter
 
 ----
+composer require yajra/laravel-datatables
+php artisan vendor:publish --tag=datatables-buttons
+
+npm i datatables.net-bs4 datatables.net-buttons-bs4
+
 npm i laravel-datatables-assets
 
 composer require yajra/laravel-datatables-buttons:^4.0
@@ -67,6 +73,53 @@ https://www.youtube.com/watch?v=Ew2ejSwzxSc&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSg
 https://www.youtube.com/watch?v=DvQnNp43DUY&list=PLe30vg_FG4OTjUsNsjkGQF-Qco1HSgy13&index=7
 
 
+composer require yajra/laravel-datatables-editor
+
+datatables
+datatables:editor    Create a new DataTables Editor class.
+datatables:html      Create a new DataTable html class.
+datatables:make      Create a new DataTable service class.
+datatables:scope     Create a new DataTable Scope class.
+
+
+npm datatables.net-editor datatables.net-editor-bs4 datatables.net-select-bs4
+
+npm "datatables.net-bs": "^1.10.19",
+npm "datatables.net-editor": "^1.6.5",
+
+
+
+Register editor script on resources/js/bootstrap.js
+try {
+    window.Popper = require('popper.js').default;
+    window.$ = window.jQuery = require('jquery');
+
+    require('bootstrap');
+    require('datatables.net-bs4');
+    require('datatables.net-buttons-bs4');
+    require('datatables.net-select-bs4');
+    require('datatables.net-editor-bs4');
+} catch (e) {}
+
+Add editor styles on resources/sass/app.scss.
+@import "~datatables.net-select-bs4/css/select.bootstrap4.css";
+@import "~datatables.net-editor-bs4/css/editor.bootstrap4.css";
+
+usar ----
+php artisan make:controller UsersController
+php artisan datatables:make Users
+php artisan datatables:editor Users
+
+Route::resource('users', 'UsersController');
+
+
 -----------
 Button::make('create')->action("window.location = '".route('admin.posts.create')."';"),
+
+Licencia
+https://editor.datatables.net/purchase/index
+
+inline editing
+
+npm uninstall
 
