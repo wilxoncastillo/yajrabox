@@ -47,9 +47,9 @@
 
     <script type="text/javascript">
         function format ( d ) {
-            return 'Email: ' + d.created_at + '<br>' +
+            return '<div class="alert-success">Email: ' + d.created_at + '<br>' +
                 'Intro: ' + d.updated_at +'<br>' +
-                'The child row can contain any data you wish, including links, images, inner tables etc.';
+                'The child row can contain any data you wish, including links, images, inner tables etc.</div>';
         }
 
         $(document).ready( function () {
