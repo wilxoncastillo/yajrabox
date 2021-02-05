@@ -65,6 +65,7 @@ class UserDataTable extends DataTable
                             'url' => url('vendor/dataTables/es_es.json')
                         ],
                         'dom'          => 'Bfrtip',
+                        'buttons' => ['create', 'export', 'print', 'reset','reload'],
                         'initComplete' => "function () {
                             this.api().columns().every(function () {
                                 var column = this;

@@ -17,10 +17,12 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src ="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
+    <script src ="{{ asset('vendor/datatables/buttons.print.min.js') }}"></script>
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
 </head>
 <body>
     <div id="app">
