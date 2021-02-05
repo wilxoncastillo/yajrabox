@@ -123,3 +123,5 @@ inline editing
 
 npm uninstall
 
+npm install --save @fortawesome/fontawesome-free
+

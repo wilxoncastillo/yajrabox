@@ -21,7 +21,10 @@ class UserDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'user.action');
+            //->addColumn('action', 'user.action');
+            ->addColumn('action', function ($data) {
+                return view('partials.action', compact('data'));
+            });
     }
 
     /**
