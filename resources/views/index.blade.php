@@ -47,9 +47,35 @@
 
     <script type="text/javascript">
         function format ( d ) {
-            return '<div class="alert-success">Email: ' + d.created_at + '<br>' +
-                'Intro: ' + d.updated_at +'<br>' +
+            return '<div class="alert-success p-3">Created_At: ' + d.created_at + '<br>' +
+                'Update_At: ' + d.updated_at +'<br>' +
                 'The child row can contain any data you wish, including links, images, inner tables etc.</div>';
+        }
+
+        function edit(data) {
+            return '<div class="card-body">' +
+              '<form clas="bg-info shadow rounded">' +
+              '<div class="form-group row">' +
+              '<label for="" class="col-sm-1 col-form-label">Nombre</label>' +
+              '<div class="col-sm-2">' +
+              '<input type="email" class="form-control bg-light shadow-sm" id="" placeholder="">' +
+              '</div>' +
+              '</div>' +
+
+              '<div class="form-group row">' +
+              '<label for="" class="col-sm-1 col-form-label">Email</label>' +
+              '<div class="col-sm-2">' +
+              '<input type="email" class="form-control bg-light shadow-sm" id="" placeholder="">' +
+              '</div>' +
+              '</div>' +
+
+              '<div class="form-group row pb-0">' +
+              '<div class="col-sm-2 offset-sm-1">' +
+              '<button type="submit" class="btn btn-primary">Actualizar</button>' +
+              '</div>' +
+              '</div>' +
+            '</form>' +
+            '<div>';
         }
 
         $(document).ready( function () {
@@ -76,8 +102,9 @@
 
             // Array to track the ids of the details displayed rows
             var detailRows = [];
+            var editRow = '';
 
-            $('#user-table').on( 'click', 'tr button.details-control', function () {
+            $('#user-table').on( 'click', 'tr span.details-control', function () {
                 var tr = $(this).closest('tr');
                 var row = table.row( tr );
                 var idx = $.inArray( tr.attr('id'), detailRows );
@@ -97,6 +124,32 @@
                     // Add to the 'open' array
                     if ( idx === -1 ) {
                         detailRows.push( tr.attr('id') );
+                    }
+                }
+            } );
+
+            //----------------------------------------------------------
+
+            $('#user-table').on( 'click', 'tr button.edit-row', function () {
+                var tr = $(this).closest('tr');
+                var row = table.row( tr );
+                var idx = $.inArray( tr.attr('id'), editRow );
+
+
+                if ( row.child.isShown() ) {
+                    tr.removeClass( 'details' );
+                    row.child.hide();
+
+                    // Remove from the 'open' array
+                    detailRows.splice( idx, 1 );
+                }
+                else {
+                    tr.addClass( 'details' );
+                    row.child( edit( row.data() ) ).show();
+
+                    // Add to the 'open' array
+                    if ( idx === -1 ) {
+                        editRows.push( tr.attr('id') );
                     }
                 }
             } );
