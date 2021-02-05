@@ -14,9 +14,8 @@ use App\DataTables\UserDataTable;
 |
 */
 
-Route::get('/', function (UserDataTable $dataTable) {
-    return $dataTable->render('index');
-});
+Route::get('/', 'UserController@index')->name('user.index');
+Route::put('/user/{user}', 'UserController@update')->name('user.update');
 
 Auth::routes();
 

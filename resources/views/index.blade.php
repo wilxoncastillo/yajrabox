@@ -32,17 +32,6 @@
 @endsection
 
 @push('scripts')
-    <style>
-        td.details-control {
-        background: url('images/details_open.png') no-repeat center center;
-
-        cursor: pointer;
-        }
-        tr.details td.details-control {
-            background: url('images/details_close.png') no-repeat center center;
-        }
-    </style>
-
     {{ $dataTable->scripts() }}
 
     <script type="text/javascript">
@@ -53,19 +42,21 @@
         }
 
         function edit(data) {
-            return '<div class="card-body">' +
-              '<form clas="bg-info shadow rounded">' +
+            return '<div class="">' +
+              '<form method="POST" action="{{ route('user.update','1') }}">' +
+              '@csrf' +
+              '@method("PUT")' +
               '<div class="form-group row">' +
               '<label for="" class="col-sm-1 col-form-label">Nombre</label>' +
               '<div class="col-sm-2">' +
-              '<input type="email" class="form-control bg-light shadow-sm" id="" placeholder="">' +
+              '<input type="text" class="form-control bg-light shadow-sm" name="name" placeholder="" value="'+ data.name +'">' +
               '</div>' +
               '</div>' +
 
               '<div class="form-group row">' +
               '<label for="" class="col-sm-1 col-form-label">Email</label>' +
               '<div class="col-sm-2">' +
-              '<input type="email" class="form-control bg-light shadow-sm" id="" placeholder="">' +
+              '<input type="email" class="form-control bg-light shadow-sm" name="email" placeholder="" value="'+ data.email +'">' +
               '</div>' +
               '</div>' +
 
@@ -102,7 +93,7 @@
 
             // Array to track the ids of the details displayed rows
             var detailRows = [];
-            var editRow = '';
+            var editRow = [];
 
             $('#user-table').on( 'click', 'tr span.details-control', function () {
                 var tr = $(this).closest('tr');
