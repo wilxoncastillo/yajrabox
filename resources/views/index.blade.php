@@ -42,10 +42,22 @@
         }
 
         function edit(data) {
-            return '<div class="">' +
-              '<form method="POST" action="{{ route('user.update','1') }}">' +
+            return '<div>' +
+                '@if($errors->any())'+
+                    '<div class="alert alert-danger">' +
+                        '<ul class="m-0">' +
+                            '@foreach($errors->all() as $error)' +
+                                '<li>{{ $error }}</li>' +
+                            '@endforeach' +
+                        '</ul>' +
+                    '</div>' +
+                '@endif' +
+
+
+              '<form method="POST" action="{{ route("user.update",' + data + ') }}">' +
               '@csrf' +
               '@method("PUT")' +
+              '<input type="hidden" name="id" value="' + data.id + '">' +
               '<div class="form-group row">' +
               '<label for="" class="col-sm-1 col-form-label">Nombre</label>' +
               '<div class="col-sm-2">' +
